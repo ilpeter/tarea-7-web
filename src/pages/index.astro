@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import VueTest from '../components/VueTest.vue';
-import SvelteTest from '../components/SvelteTest.svelte';
+import CryptoList from '../components/CryptoList.astro';
 ---
 
 <Layout>
@@ -14,14 +13,13 @@ import SvelteTest from '../components/SvelteTest.svelte';
 				Monitoreo de criptomonedas en tiempo real
 			</h1>
 			<p class="mt-4 text-base leading-relaxed text-slate-400">
-				Base estática generada por Astro. Las islas Vue y Svelte se activan en el
-				cliente para filtros y datos en vivo.
+				El océano estático de Astro pre-renderiza la lista de mercados al compilar.
+				Las islas Vue y Svelte llegarán después para filtros y datos en vivo.
 			</p>
 		</div>
 
-		<div class="mt-10 grid w-full max-w-lg gap-3 sm:grid-cols-2">
-			<VueTest client:load message="Isla Vue renderizada" />
-			<SvelteTest client:load message="Isla Svelte renderizada" />
+		<div class="mt-10">
+			<CryptoList />
 		</div>
 	</section>
 </Layout>

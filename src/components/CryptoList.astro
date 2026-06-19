@@ -1,0 +1,37 @@
+---
+import { fetchTopCryptos } from '../lib/coingecko';
+import CryptoCard from './CryptoCard.astro';
+
+const cryptos = await fetchTopCryptos(15);
+---
+
+<section aria-labelledby="crypto-list-heading">
+	<div class="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+		<div>
+			<h2 id="crypto-list-heading" class="text-2xl font-bold text-white">
+				Top criptomonedas
+			</h2>
+			<p class="mt-1 text-sm text-slate-400">
+				Tarjetas HTML estáticas — nombre, símbolo e ícono pre-renderizados al compilar.
+			</p>
+		</div>
+		<p class="text-xs font-medium uppercase tracking-wider text-slate-500">
+			{cryptos.length} activos
+		</p>
+	</div>
+
+	<ul
+		class="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+	>
+		{
+			cryptos.map((crypto) => (
+				<CryptoCard
+					name={crypto.name}
+					symbol={crypto.symbol}
+					image={crypto.image}
+					rank={crypto.market_cap_rank}
+				/>
+			))
+		}
+	</ul>
+</section>
