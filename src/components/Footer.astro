@@ -1,0 +1,26 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-auto border-t border-border bg-surface-raised">
+	<div class="mx-auto max-w-6xl px-6 py-8">
+		<div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+			<div>
+				<p class="text-sm font-semibold text-white">Crypto Dashboard</p>
+				<p class="mt-1 text-xs text-slate-400">
+					Panel estático con islas interactivas · Astro + Vue + Svelte
+				</p>
+			</div>
+
+			<p class="text-xs text-slate-500">
+				© {year} · WEB Avanzada · Tarea 7
+			</p>
+		</div>
+
+		<div class="mt-6 flex h-0.5 w-full overflow-hidden rounded-full" aria-hidden="true">
+			<span class="flex-1 bg-mx-green"></span>
+			<span class="flex-1 bg-us-blue"></span>
+			<span class="flex-1 bg-ca-red"></span>
+		</div>
+	</div>
+</footer>
