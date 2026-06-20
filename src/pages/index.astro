@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CryptoList from '../components/CryptoList.astro';
+import CryptoSelector from '../components/CryptoSelector.vue';
+import { fetchTopCryptos } from '../lib/coingecko';
+
+const cryptos = await fetchTopCryptos(15);
+
+const cryptoOptions = cryptos.map(({ id, name, symbol, image }) => ({
+	id,
+	name,
+	symbol,
+	image,
+}));
+---
+
+<Layout>
+	<section class="mx-auto max-w-6xl px-6 py-12">
+		<div class="grid gap-8 lg:grid-cols-[minmax(0,22rem)_1fr] lg:items-start">
+			<CryptoSelector client:load cryptos={cryptoOptions} />
+
+			<div>
+				<div class="max-w-2xl">
+					<p class="text-sm font-medium uppercase tracking-widest text-mx-green">
+						Mundial 2026
+					</p>
+					<h1 class="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+						Monitoreo de criptomonedas en tiempo real
+					</h1>
+					<p class="mt-4 text-base leading-relaxed text-slate-400">
+						El océano estático pre-renderiza la lista al compilar. La isla Vue se
+						activa de inmediato con <code class="text-mx-green">client:load</code>.
+					</p>
+				</div>
+
+				<div class="mt-10">
+					<CryptoList />
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

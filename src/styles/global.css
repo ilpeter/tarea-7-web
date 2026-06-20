@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+	--font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+	/* Paleta Mundial 2026 — anfitriones MX · US · CA */
+	--color-mx-green: #006847;
+	--color-us-blue: #002868;
+	--color-ca-red: #d80621;
+	--color-surface: #0c1222;
+	--color-surface-raised: #151d2e;
+	--color-border: #1e293b;
+}
+
+@layer base {
+	html {
+		@apply scroll-smooth;
+	}
+
+	body {
+		@apply bg-surface font-sans text-slate-100 antialiased;
+	}
+}
